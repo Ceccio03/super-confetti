@@ -56,5 +56,33 @@ function fire2() {
 }
 
 function fire3() {
-    console.log('3');
+    var defaults = {
+        spread: 360,
+        startVelocity: 50,
+        decay: 0.1,
+        gravity: 0,
+        ticks: 50,
+        shapes: ['circle'],
+        colors: ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'],
+    };
+
+    function shoot() {
+        confetti({
+            ...defaults,
+            particleCount: 40,
+            scalar: 1.2,
+            shapes: ['star']
+        });
+
+        confetti({
+            ...defaults,
+            particleCount: 10,
+            scalar: 0.75,
+            shapes: ['circle']
+        })
+    }
+
+    setTimeout(shoot);
+    setTimeout(shoot, 2000);
+    setTimeout(shoot, 5000);
 }
